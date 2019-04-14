@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutComponent, PathNotFoundComponent } from './components';
 import { FormsModule } from '@angular/forms';
-import { MessagesComponent } from './components/messages/messages.component';
+
+import {
+  AboutComponent,
+  PathNotFoundComponent,
+  MessagesComponent,
+} from './components';
 
 @NgModule({
-  imports: [
-    CommonModule, FormsModule,
-  ],
+  imports: [CommonModule, FormsModule],
 
-  declarations: [AboutComponent, PathNotFoundComponent, MessagesComponent]
+  declarations: [AboutComponent, PathNotFoundComponent, MessagesComponent],
 })
-export class LayoutModule { }
+export class LayoutModule {}

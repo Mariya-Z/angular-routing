@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layout/layout.module';
 import { TasksModule } from './tasks/tasks.module';
+import { CoreModule } from './core/core.module';
+import { UsersModule } from './users/users.module';
 
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CoreModule } from './core/core.module';
     LayoutModule,
     TasksModule,
     CoreModule,
+    UsersModule,
 
     AppRoutingModule,
   ],

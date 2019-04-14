@@ -4,12 +4,12 @@
     <a class="btn btn-default" (click)="onClose()">x</a>
   </span>
 </div>
- <div>
+<div>
   <textarea [(ngModel)]="message"></textarea>
 </div>
- <div>
+<div>
   <button type="button" class="btn btn-primary" (click)="onSend()">Send</button>
 </div>
 <div *ngFor="let message of messagesService.getMessages()" class="message-row">
-  {{message}}
+  {{ message }}
 </div>

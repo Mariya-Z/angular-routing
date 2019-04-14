@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { CoreModule } from '../core.module';
 
 @Injectable({
-  providedIn: CoreModule
+  providedIn: CoreModule,
 })
-
 export class MessagesService {
   isDisplayed = false;
   private messages: string[] = [];
