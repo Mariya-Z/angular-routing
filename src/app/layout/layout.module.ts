@@ -6,11 +6,17 @@ import {
   AboutComponent,
   PathNotFoundComponent,
   MessagesComponent,
+  LoginComponent,
 } from './components';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
 
-  declarations: [AboutComponent, PathNotFoundComponent, MessagesComponent],
+  declarations: [
+    AboutComponent,
+    PathNotFoundComponent,
+    MessagesComponent,
+    LoginComponent,
+  ],
 })
 export class LayoutModule {}

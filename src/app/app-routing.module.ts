@@ -4,11 +4,16 @@ import {
   AboutComponent,
   PathNotFoundComponent,
   MessagesComponent,
+  LoginComponent,
 } from './layout';
 const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'messages',

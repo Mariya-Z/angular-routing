@@ -8,13 +8,12 @@ import { LayoutModule } from './layout/layout.module';
 import { TasksModule } from './tasks/tasks.module';
 import { CoreModule } from './core/core.module';
 import { UsersModule } from './users/users.module';
+import { AdminModule } from './admin/admin.module';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -23,12 +22,12 @@ import { AppComponent } from './app.component';
     TasksModule,
     CoreModule,
     UsersModule,
+    AdminModule,
 
     AppRoutingModule,
   ],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(router: Router) {
