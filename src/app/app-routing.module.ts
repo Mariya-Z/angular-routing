@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {
+  Routes,
+  RouterModule,
+  ExtraOptions,
+} from '@angular/router';
 import {
   AboutComponent,
   PathNotFoundComponent,
   MessagesComponent,
   LoginComponent,
 } from './layout';
-import { AuthGuard } from './core';
+import { AuthGuard, CustomPreloadingStrategyService  } from './core';
 const routes: Routes = [
   {
     path: 'about',
@@ -24,6 +28,7 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: './users/users.module#UsersModule',
+    data: { preload: true },
   },
 
   {
@@ -43,9 +48,15 @@ const routes: Routes = [
     component: PathNotFoundComponent,
   },
 ];
+
+const extraOptions: ExtraOptions = {
+  preloadingStrategy: CustomPreloadingStrategyService ,
+  enableTracing: true, // Makes the router log all its internal events to the console.
+};
+
 @NgModule({
   // imports: [RouterModule.forRoot(routes, {useHash: true})],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, extraOptions)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
