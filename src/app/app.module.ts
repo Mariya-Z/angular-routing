@@ -11,6 +11,7 @@ import { UsersModule } from './users/users.module';
 import { AdminModule } from './admin/admin.module';
 
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,9 +19,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
 
+    CoreModule,
+    SharedModule,
     LayoutModule,
     TasksModule,
-    CoreModule,
     UsersModule,
     AdminModule,
 

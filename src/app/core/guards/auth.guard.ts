@@ -5,6 +5,7 @@ import {
   RouterStateSnapshot,
   Router,
   CanActivateChild,
+  NavigationExtras
 } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -35,8 +36,17 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     // Store the attempted URL for redirecting
     this.authService.redirectUrl = url;
 
+    // Create a dummy session id
+    const sessionId = 123456789;
+
+    const navigationExtras: NavigationExtras = {
+      queryParams: { sessionId },
+      fragment: 'anchor'
+    };
+
+
     // Navigate to the login page
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], navigationExtras);
     return false;
   }
 
