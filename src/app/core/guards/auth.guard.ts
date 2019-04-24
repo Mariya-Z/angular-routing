@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
+  CanLoad,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
   CanActivateChild,
-  NavigationExtras
+  NavigationExtras,
+  Route,
 } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -16,7 +18,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: CoreModule,
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
@@ -27,6 +29,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     const { url } = state;
     return this.checkLogin(url);
   }
+
+  canLoad(route: Route): Observable<boolean> | Promise<boolean> | boolean {
+    console.log('CanLoad Guard is called');
+    const url = `/${route.path}`;
+    return this.checkLogin(url);
+}
+
 
   private checkLogin(url: string): boolean {
     if (this.authService.isLoggedIn) {
@@ -41,9 +50,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
     const navigationExtras: NavigationExtras = {
       queryParams: { sessionId },
-      fragment: 'anchor'
+      fragment: 'anchor',
     };
-
 
     // Navigate to the login page
     this.router.navigate(['/login'], navigationExtras);
